@@ -1,37 +1,25 @@
-var menuButton = document.getElementById("menuButton");
-var menu = document.getElementById("menu");
+var menuToggle = document.getElementById("menuToggle");
+var mainMenu = document.getElementById("mainMenu");
 
-if (menuButton && menu) {
+if (menuToggle && mainMenu) {
 
-    menuButton.addEventListener("click", function () {
+menuToggle.addEventListener("click", function() {
 
-        if (menu.classList.contains("active")) {
+mainMenu.classList.toggle("active");
 
-            menu.classList.remove("active");
-
-        } else {
-
-            menu.classList.add("active");
-
-        }
-
-    });
+});
 
 }
 
 
-var menuLinks = document.querySelectorAll("#menu a");
+var menuLinks = document.querySelectorAll("#mainMenu a");
 
 for (var i = 0; i < menuLinks.length; i++) {
 
-    menuLinks[i].addEventListener("click", function () {
+menuLinks[i].addEventListener("click", function() {
 
-        if (menu) {
+mainMenu.classList.remove("active");
 
-            menu.classList.remove("active");
-
-        }
-
-    });
+});
 
 }
