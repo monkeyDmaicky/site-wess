@@ -1,63 +1,27 @@
-/* =====================================
-   MENU MOBILE
-===================================== */
+var menuButton = document.getElementById("menuButton");
+var menu = document.getElementById("menu");
 
-const menuBtn = document.getElementById("menuBtn");
-const menu = document.getElementById("menu");
+if (menuButton && menu) {
 
-menuBtn.addEventListener("click", function () {
+    menuButton.addEventListener("click", function () {
 
-    menu.classList.toggle("active");
-
-});
-
-
-/* =====================================
-   FECHAR MENU AO CLICAR
-===================================== */
-
-const menuLinks = document.querySelectorAll("#menu a");
-
-menuLinks.forEach(function (link) {
-
-    link.addEventListener("click", function () {
-
-        menu.classList.remove("active");
+        menu.classList.toggle("active");
 
     });
-
-});
-
-
-/* =====================================
-   ANO AUTOMÁTICO
-===================================== */
-
-const ano = document.getElementById("ano");
-
-if (ano) {
-
-    ano.textContent = new Date().getFullYear();
 
 }
 
 
-/* =====================================
-   FECHAR MENU AO CLICAR FORA
-===================================== */
+var menuLinks = document.querySelectorAll("#menu a");
 
-document.addEventListener("click", function (event) {
+for (var i = 0; i < menuLinks.length; i++) {
 
-    const clicouNoMenu =
-        menu.contains(event.target);
+    menuLinks[i].addEventListener("click", function () {
 
-    const clicouNoBotao =
-        menuBtn.contains(event.target);
+        if (menu) {
+            menu.classList.remove("active");
+        }
 
-    if (!clicouNoMenu && !clicouNoBotao) {
+    });
 
-        menu.classList.remove("active");
-
-    }
-
-});
+}
