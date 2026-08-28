@@ -1,61 +1,63 @@
-// ==============================
-// MENU MOBILE
-// ==============================
+/* =====================================
+   MENU MOBILE
+===================================== */
 
-const menuButton = document.getElementById("menuButton");
-const menu = document.querySelector(".menu");
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
 
-menuButton.addEventListener("click", () => {
+menuBtn.addEventListener("click", function () {
+
     menu.classList.toggle("active");
+
 });
 
 
-// Fecha o menu ao clicar em um link
+/* =====================================
+   FECHAR MENU AO CLICAR
+===================================== */
 
-document.querySelectorAll(".menu a").forEach(link => {
+const menuLinks = document.querySelectorAll("#menu a");
 
-    link.addEventListener("click", () => {
+menuLinks.forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
         menu.classList.remove("active");
+
     });
 
 });
 
 
-// ==============================
-// ANIMAÇÃO AO APARECER
-// ==============================
+/* =====================================
+   ANO AUTOMÁTICO
+===================================== */
 
-const elements = document.querySelectorAll(
-    ".product-box, .segment, .step, .about-card, .contact-box"
-);
+const ano = document.getElementById("ano");
 
-const observer = new IntersectionObserver(
-    entries => {
+if (ano) {
 
-        entries.forEach(entry => {
+    ano.textContent = new Date().getFullYear();
 
-            if (entry.isIntersecting) {
+}
 
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
 
-            }
+/* =====================================
+   FECHAR MENU AO CLICAR FORA
+===================================== */
 
-        });
+document.addEventListener("click", function (event) {
 
-    },
-    {
-        threshold: 0.12
+    const clicouNoMenu =
+        menu.contains(event.target);
+
+    const clicouNoBotao =
+        menuBtn.contains(event.target);
+
+    if (!clicouNoMenu && !clicouNoBotao) {
+
+        menu.classList.remove("active");
+
     }
-);
-
-
-elements.forEach(element => {
-
-    element.style.opacity = "0";
-    element.style.transform = "translateY(20px)";
-    element.style.transition = "opacity .6s ease, transform .6s ease";
-
-    observer.observe(element);
 
 });
