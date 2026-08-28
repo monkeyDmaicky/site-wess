@@ -1,530 +1,5 @@
 /* =========================
-   RESET
-========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: "DM Sans", Arial, sans-serif;
-    color: #17231d;
-    background: #f6f6f2;
-    line-height: 1.6;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-button {
-    font-family: inherit;
-}
-
-.container {
-    width: min(1140px, 92%);
-    margin: auto;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-.header {
-    height: 78px;
-    background: #123d2c;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 5px 25px rgba(0,0,0,.12);
-}
-
-.nav {
-    height: 78px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 30px;
-}
-
-.logo {
-    line-height: 1;
-}
-
-.logo-main {
-    display: block;
-    font-family: "Montserrat", sans-serif;
-    font-size: 25px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.logo-sub {
-    display: block;
-    color: #d8b968;
-    font-size: 9px;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-    margin-top: 6px;
-}
-
-.menu {
-    display: flex;
-    gap: 27px;
-    align-items: center;
-}
-
-.menu a {
-    font-size: 14px;
-    font-weight: 600;
-    transition: .2s;
-}
-
-.menu a:hover {
-    color: #d8b968;
-}
-
-.nav-whatsapp {
-    background: #d8b968;
-    color: #123d2c;
-    padding: 11px 17px;
-    border-radius: 7px;
-    font-size: 13px;
-    font-weight: 800;
-}
-
-.menu-button {
-    display: none;
-    border: 0;
-    background: none;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    position: relative;
-    min-height: 650px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    color: white;
-    background:
-        linear-gradient(
-            120deg,
-            #0d3325 0%,
-            #164b36 55%,
-            #1d6046 100%
-        );
-}
-
-.hero-background {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 50%;
-    right: -180px;
-    top: -200px;
-}
-
-.hero-background::after {
-    content: "";
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    border: 1px solid rgba(255,255,255,.07);
-    border-radius: 50%;
-    top: 100px;
-    left: 100px;
-}
-
-.hero-content {
-    display: grid;
-    grid-template-columns: 1.1fr .9fr;
-    gap: 60px;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-}
-
-.tag {
-    display: inline-block;
-    border: 1px solid rgba(220,195,120,.7);
-    color: #e4ca83;
-    padding: 7px 14px;
-    border-radius: 30px;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    font-family: "Montserrat", sans-serif;
-    font-size: clamp(40px, 5vw, 65px);
-    line-height: 1.05;
-    letter-spacing: -2px;
-    max-width: 700px;
-}
-
-.hero h1 span {
-    display: block;
-    color: #d8b968;
-}
-
-.hero-text > p {
-    color: #dce8e1;
-    font-size: 18px;
-    max-width: 650px;
-    margin-top: 23px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 13px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 14px 22px;
-    border-radius: 7px;
-    font-size: 14px;
-    font-weight: 800;
-    transition: .2s;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-}
-
-.btn-primary {
-    background: #d8b968;
-    color: #123d2c;
-}
-
-.btn-secondary {
-    border: 1px solid rgba(255,255,255,.4);
-    color: white;
-}
-
-.btn-white {
-    background: white;
-    color: #123d2c;
-}
-
-.hero-location {
-    margin-top: 28px;
-    color: #b9cfc4;
-    font-size: 13px;
-}
-
-
-/* =========================
-   HERO PRODUCT
-========================= */
-
-.hero-product {
-    display: flex;
-    justify-content: center;
-}
-
-.product-card {
-    width: 390px;
-    padding: 35px;
-    border-radius: 22px;
-    background: rgba(255,255,255,.09);
-    border: 1px solid rgba(255,255,255,.15);
-    backdrop-filter: blur(10px);
-}
-
-.product-roll {
-    height: 270px;
-    border-radius: 15px;
-    background:
-        repeating-linear-gradient(
-            0deg,
-            #eeeeee 0px,
-            #eeeeee 9px,
-            #cccccc 10px,
-            #f7f7f7 19px
-        );
-    transform: rotate(-5deg);
-    box-shadow: 0 25px 50px rgba(0,0,0,.3);
-    display: grid;
-    place-items: center;
-}
-
-.roll-center {
-    width: 105px;
-    height: 105px;
-    border-radius: 50%;
-    background: #123d2c;
-    color: #d8b968;
-    display: grid;
-    place-items: center;
-    font-family: "Montserrat";
-    font-weight: 800;
-    box-shadow: 0 5px 20px rgba(0,0,0,.2);
-}
-
-.product-info {
-    margin-top: 30px;
-}
-
-.product-info strong {
-    display: block;
-    font-size: 19px;
-}
-
-.product-info span {
-    color: #c5d6ce;
-    font-size: 13px;
-}
-
-
-/* =========================
-   TRUST
-========================= */
-
-.trust {
-    background: white;
-    border-bottom: 1px solid #e4e8e4;
-}
-
-.trust-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.trust-grid > div {
-    padding: 24px;
-    text-align: center;
-    border-right: 1px solid #e5e8e5;
-}
-
-.trust-grid > div:last-child {
-    border-right: 0;
-}
-
-.trust strong {
-    display: block;
-    color: #123d2c;
-    font-family: "Montserrat";
-    font-size: 17px;
-}
-
-.trust span {
-    font-size: 12px;
-    color: #76837d;
-}
-
-
-/* =========================
-   SECTIONS
-========================= */
-
-.section {
-    padding: 95px 0;
-}
-
-.light {
-    background: #eeeeea;
-}
-
-.section-header {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto 50px;
-}
-
-.section-tag {
-    color: #1e674b;
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 1.5px;
-}
-
-.section-header h2,
-.about-text h2,
-.contact-text h2 {
-    font-family: "Montserrat", sans-serif;
-    font-size: clamp(32px, 4vw, 44px);
-    line-height: 1.12;
-    margin: 9px 0 14px;
-    letter-spacing: -1px;
-}
-
-.section-header p {
-    color: #6d7972;
-}
-
-
-/* =========================
-   PRODUCTS
-========================= */
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.product-box {
-    background: white;
-    padding: 30px;
-    border: 1px solid #e1e5e1;
-    border-radius: 16px;
-    min-height: 290px;
-    position: relative;
-    transition: .25s;
-}
-
-.product-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(18,61,44,.1);
-}
-
-.product-box.featured {
-    background: #123d2c;
-    color: white;
-}
-
-.product-icon {
-    width: 52px;
-    height: 52px;
-    display: grid;
-    place-items: center;
-    border-radius: 13px;
-    background: #edf3ef;
-    font-size: 23px;
-    margin-bottom: 17px;
-}
-
-.featured .product-icon {
-    background: rgba(255,255,255,.1);
-}
-
-.product-number {
-    position: absolute;
-    top: 27px;
-    right: 28px;
-    color: #a6b3ac;
-    font-size: 12px;
-    font-weight: 800;
-}
-
-.product-box h3 {
-    font-family: "Montserrat";
-    font-size: 21px;
-    margin-bottom: 10px;
-}
-
-.product-box p {
-    color: #6e7973;
-    font-size: 14px;
-}
-
-.featured p {
-    color: #c9d7d0;
-}
-
-.product-box a {
-    display: inline-block;
-    margin-top: 22px;
-    color: #1d684c;
-    font-size: 13px;
-    font-weight: 800;
-}
-
-.featured a {
-    color: #e0c475;
-}
-
-
-/* =========================
-   BANNER
-========================= */
-
-.banner {
-    padding: 60px 0;
-    background: linear-gradient(110deg, #d3ad56, #ecd594);
-}
-
-.banner-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-}
-
-.banner span {
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 1.5px;
-    color: #536046;
-}
-
-.banner h2 {
-    font-family: "Montserrat";
-    font-size: 31px;
-    line-height: 1.2;
-    margin-top: 5px;
-}
-
-
-/* =========================
-   SEGMENTS
-========================= */
-
-.segments {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-}
-
-.segment {
-    background: white;
-    border: 1px solid #e1e5e1;
-    border-radius: 13px;
-    padding: 24px;
-    text-align: center;
-    transition: .2s;
-}
-
-.segment:hover {
-    transform: translateY(-3px);
-}
-
-.segment span {
-    display: block;
-    font-size: 30px;
-    margin-bottom: 8px;
-}
-
-.segment strong {
-    font-size: 14px;
-}
-
-
-/* =========================
-   ABOUT
+   SOBRE - WESS + MILPRINT
 ========================= */
 
 .about {
@@ -540,53 +15,81 @@ button {
     align-items: center;
 }
 
-.about-image {
+.about-visual {
     min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    display: grid;
-    place-items: center;
 }
 
-.about-card {
-    width: 310px;
-    height: 310px;
-    border-radius: 25px;
-    background: linear-gradient(145deg,#1d6147,#0e3023);
+.about-visual::before {
+    content: "";
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    border: 1px solid rgba(216,185,104,.35);
+    border-radius: 50%;
+}
+
+.about-visual::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 1px solid rgba(216,185,104,.20);
+    border-radius: 50%;
+}
+
+.brand-card {
+    width: 330px;
+    min-height: 330px;
+    padding: 45px 30px;
+    background: linear-gradient(
+        145deg,
+        #1c6248,
+        #0b2d21
+    );
     border: 1px solid rgba(255,255,255,.15);
-    box-shadow: 20px 25px 50px rgba(0,0,0,.25);
+    border-radius: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 35px;
+    align-items: center;
     position: relative;
     z-index: 2;
+    box-shadow: 0 25px 60px rgba(0,0,0,.25);
 }
 
-.about-card span {
-    color: #d8b968;
-    font-family: "Montserrat";
-    font-size: 42px;
+.brand-wess {
+    font-family: "Montserrat", sans-serif;
+    font-size: 58px;
+    line-height: 1;
     font-weight: 800;
+    color: white;
 }
 
-.about-card strong {
-    font-family: "Montserrat";
-    font-size: 20px;
+.brand-card > span {
+    color: #d8b968;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-top: 8px;
 }
 
-.about-card small {
-    color: #bcd0c5;
-    margin-top: 15px;
+.brand-line {
+    width: 70px;
+    height: 2px;
+    background: #d8b968;
+    margin: 28px 0;
 }
 
-.about-circle {
-    width: 210px;
-    height: 210px;
-    border-radius: 50%;
-    border: 1px solid rgba(216,185,104,.35);
-    position: absolute;
-    right: 5px;
-    bottom: 20px;
+.brand-milprint {
+    font-family: "Montserrat", sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    font-style: italic;
+    color: white;
 }
 
 .about-text .section-tag {
@@ -595,6 +98,10 @@ button {
 
 .about-text h2 {
     color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(32px, 4vw, 44px);
+    line-height: 1.12;
+    margin: 10px 0 18px;
 }
 
 .about-text > p {
@@ -610,13 +117,13 @@ button {
 
 .about-list div {
     display: flex;
-    gap: 12px;
     align-items: center;
+    gap: 12px;
 }
 
 .about-list span {
-    width: 25px;
-    height: 25px;
+    width: 26px;
+    height: 26px;
     display: grid;
     place-items: center;
     border-radius: 50%;
@@ -632,369 +139,39 @@ button {
 
 
 /* =========================
-   STEPS
+   SOBRE NO CELULAR
 ========================= */
 
-.steps {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 15px;
-}
-
-.step {
-    padding: 27px;
-    background: white;
-    border-radius: 14px;
-    border: 1px solid #e2e6e2;
-}
-
-.step > span {
-    color: #d0aa54;
-    font-family: "Montserrat";
-    font-size: 13px;
-    font-weight: 800;
-}
-
-.step h3 {
-    font-family: "Montserrat";
-    font-size: 18px;
-    margin: 8px 0;
-}
-
-.step p {
-    color: #707b75;
-    font-size: 13px;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact {
-    background: #eeeeea;
-    padding: 100px 0;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr .8fr;
-    gap: 70px;
-    align-items: center;
-}
-
-.contact-text h2 {
-    max-width: 600px;
-}
-
-.contact-text > p {
-    color: #68756e;
-    max-width: 550px;
-}
-
-.contact-items {
-    margin-top: 35px;
-    display: grid;
-    gap: 17px;
-}
-
-.contact-items > * {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.contact-items > * > span {
-    width: 48px;
-    height: 48px;
-    display: grid;
-    place-items: center;
-    background: white;
-    border-radius: 12px;
-}
-
-.contact-items small {
-    display: block;
-    color: #7b857f;
-    font-size: 11px;
-}
-
-.contact-items strong {
-    display: block;
-    font-size: 14px;
-}
-
-.contact-box {
-    background: #123d2c;
-    color: white;
-    border-radius: 18px;
-    padding: 40px;
-    box-shadow: 0 20px 50px rgba(18,61,44,.2);
-}
-
-.contact-box h3 {
-    font-family: "Montserrat";
-    font-size: 26px;
-}
-
-.contact-box p {
-    color: #c9d8d1;
-    font-size: 14px;
-    margin: 10px 0 25px;
-}
-
-.full {
-    width: 100%;
-    text-align: center;
-}
-
-.contact-note {
-    display: block;
-    text-align: center;
-    margin-top: 14px;
-    font-size: 11px;
-    color: #9fb4a9;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: #0b291e;
-    color: #c8d5ce;
-    padding: 55px 0 20px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr 1fr;
-    gap: 35px;
-}
-
-.footer-logo {
-    color: white;
-    font-family: "Montserrat";
-    font-size: 28px;
-    font-weight: 800;
-}
-
-.footer-grid p {
-    color: #9eb0a7;
-    font-size: 13px;
-    margin-top: 12px;
-}
-
-.footer-grid h4 {
-    color: white;
-    font-size: 14px;
-    margin-bottom: 12px;
-}
-
-.footer-grid > div > a:not(.footer-logo) {
-    display: block;
-    color: #aebfb6;
-    font-size: 13px;
-    margin: 7px 0;
-}
-
-.footer-grid > div > a:not(.footer-logo):hover {
-    color: #d8b968;
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,.1);
-    margin-top: 40px;
-    padding-top: 18px;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    color: #7f958a;
-    font-size: 11px;
-}
-
-
-/* =========================
-   WHATSAPP
-========================= */
-
-.whatsapp-float {
-    position: fixed;
-    right: 22px;
-    bottom: 22px;
-    width: 58px;
-    height: 58px;
-    background: #25d366;
-    color: white;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 30px;
-    z-index: 999;
-    box-shadow: 0 8px 25px rgba(0,0,0,.25);
-    transition: .2s;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.08);
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:900px) {
-
-    .menu {
-        display: none;
-        position: absolute;
-        top: 78px;
-        left: 0;
-        right: 0;
-        background: #123d2c;
-        flex-direction: column;
-        padding: 25px;
-        gap: 18px;
-    }
-
-    .menu.active {
-        display: flex;
-    }
-
-    .menu-button {
-        display: block;
-    }
-
-    .nav-whatsapp {
-        display: none;
-    }
-
-    .hero {
-        min-height: auto;
-        padding: 80px 0;
-    }
-
-    .hero-content {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-product {
-        display: none;
-    }
-
-    .products-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .segments {
-        grid-template-columns: repeat(2,1fr);
-    }
+@media(max-width: 900px) {
 
     .about-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
 
-    .about-image {
+    .about-visual {
         min-height: 350px;
     }
 
-    .steps {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
 }
 
+@media(max-width: 600px) {
 
-@media(max-width:600px) {
-
-    .header,
-    .nav {
-        height: 70px;
-    }
-
-    .menu {
-        top: 70px;
-    }
-
-    .hero {
-        padding: 65px 0;
-    }
-
-    .hero h1 {
-        font-size: 39px;
-    }
-
-    .hero-text > p {
-        font-size: 16px;
-    }
-
-    .section,
-    .about,
-    .contact {
-        padding: 70px 0;
-    }
-
-    .trust-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
-
-    .trust-grid > div:nth-child(2) {
-        border-right: 0;
-    }
-
-    .products-grid,
-    .segments,
-    .steps {
-        grid-template-columns: 1fr;
-    }
-
-    .banner-content {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .banner h2 {
-        font-size: 26px;
-    }
-
-    .about-image {
+    .about-visual {
         min-height: 300px;
     }
 
-    .about-card {
-        width: 270px;
-        height: 270px;
+    .brand-card {
+        width: 280px;
+        min-height: 280px;
     }
 
-    .about-circle {
-        display: none;
+    .brand-wess {
+        font-size: 48px;
     }
 
-    .contact-box {
-        padding: 28px;
+    .brand-milprint {
+        font-size: 27px;
     }
 
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-    }
-
-    .whatsapp-float {
-        width: 54px;
-        height: 54px;
-        right: 17px;
-        bottom: 17px;
-    }
 }
