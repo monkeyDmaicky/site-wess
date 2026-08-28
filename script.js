@@ -5,7 +5,15 @@ if (menuButton && menu) {
 
     menuButton.addEventListener("click", function () {
 
-        menu.classList.toggle("active");
+        if (menu.classList.contains("active")) {
+
+            menu.classList.remove("active");
+
+        } else {
+
+            menu.classList.add("active");
+
+        }
 
     });
 
@@ -19,7 +27,9 @@ for (var i = 0; i < menuLinks.length; i++) {
     menuLinks[i].addEventListener("click", function () {
 
         if (menu) {
+
             menu.classList.remove("active");
+
         }
 
     });
