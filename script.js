@@ -1,131 +1,139 @@
 const menuButton =
     document.getElementById("menuButton");
 
-
 const navigation =
     document.getElementById("navigation");
 
 
-menuButton.addEventListener(
-    "click",
-    function () {
+if (menuButton && navigation) {
 
-        navigation.classList.toggle("open");
+    menuButton.addEventListener(
+        "click",
+        function () {
 
-    }
-);
+            navigation.classList.toggle("open");
 
-
-const links =
-    document.querySelectorAll(
-        "#navigation a"
+        }
     );
 
 
-links.forEach(
-    function (link) {
+    const navigationLinks =
+        navigation.querySelectorAll("a");
 
-        link.addEventListener(
-            "click",
-            function () {
 
-                navigation.classList.remove(
-                    "open"
-                );
+    navigationLinks.forEach(
+        function (link) {
 
-            }
-        );
+            link.addEventListener(
+                "click",
+                function () {
 
-    }
-);
+                    navigation.classList.remove("open");
+
+                }
+            );
+
+        }
+    );
+
+}
+
 
 
 const quoteForm =
-    document.getElementById(
-        "quoteForm"
-    );
+    document.getElementById("quoteForm");
 
 
-quoteForm.addEventListener(
-    "submit",
-    function (event) {
+if (quoteForm) {
 
-        event.preventDefault();
+    quoteForm.addEventListener(
+        "submit",
+        function (event) {
 
-
-        const name =
-            document.getElementById(
-                "name"
-            ).value.trim();
+            event.preventDefault();
 
 
-        const company =
-            document.getElementById(
-                "company"
-            ).value.trim();
+            const name =
+                document
+                .getElementById("name")
+                .value
+                .trim();
 
 
-        const phone =
-            document.getElementById(
-                "phone"
-            ).value.trim();
+            const company =
+                document
+                .getElementById("company")
+                .value
+                .trim();
 
 
-        const product =
-            document.getElementById(
-                "product"
-            ).value;
+            const phone =
+                document
+                .getElementById("phone")
+                .value
+                .trim();
 
 
-        const message =
-            document.getElementById(
-                "message"
-            ).value.trim();
+            const product =
+                document
+                .getElementById("product")
+                .value;
 
 
-        const whatsappMessage =
-
-            "Ola Wess Etiquetas!" +
-
-            "\n\n" +
-
-            "Nome: " +
-            name +
-
-            "\n" +
-
-            "Empresa: " +
-            company +
-
-            "\n" +
-
-            "Telefone: " +
-            phone +
-
-            "\n" +
-
-            "Produto: " +
-            product +
-
-            "\n" +
-
-            "Mensagem: " +
-            message;
+            const message =
+                document
+                .getElementById("message")
+                .value
+                .trim();
 
 
-        const whatsappUrl =
+            const text =
 
-            "https://wa.me/5541984171327?text=" +
+                "Ola Wess Rotulos e Etiquetas!" +
 
-            encodeURIComponent(
-                whatsappMessage
+                "\n\n" +
+
+                "Gostaria de solicitar um orcamento." +
+
+                "\n\n" +
+
+                "Nome: " +
+                name +
+
+                "\n" +
+
+                "Empresa: " +
+                company +
+
+                "\n" +
+
+                "Telefone: " +
+                phone +
+
+                "\n" +
+
+                "Interesse: " +
+                product +
+
+                "\n" +
+
+                "Mensagem: " +
+                message;
+
+
+            const url =
+
+                "https://wa.me/5541984171327?text=" +
+
+                encodeURIComponent(text);
+
+
+            window.open(
+                url,
+                "_blank"
             );
 
+        }
+    );
 
-        window.open(
-            whatsappUrl,
-            "_blank"
-        );
-
-    }
-);
+}
