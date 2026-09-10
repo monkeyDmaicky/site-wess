@@ -1,119 +1,101 @@
 const menuButton = document.getElementById("menuButton");
-const menu = document.getElementById("menu");
 
-if (menuButton && menu) {
-
-    menuButton.addEventListener("click", function () {
-
-        menu.classList.toggle("active");
-
-        document.body.classList.toggle("menu-open");
-
-    });
+const navigation = document.getElementById("navigation");
 
 
-    const menuLinks = menu.querySelectorAll("a");
+menuButton.addEventListener("click", function () {
 
-    menuLinks.forEach(function (link) {
+    navigation.classList.toggle("open");
 
-        link.addEventListener("click", function () {
+});
 
-            menu.classList.remove("active");
 
-            document.body.classList.remove("menu-open");
+const navigationLinks =
+    document.querySelectorAll("#navigation a");
 
-        });
+
+navigationLinks.forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+        navigation.classList.remove("open");
 
     });
 
-}
+});
 
 
-/* FORMULARIO */
-
-const contactForm = document.getElementById("contactForm");
-
-if (contactForm) {
-
-    contactForm.addEventListener("submit", function (event) {
-
-        event.preventDefault();
-
-        const name = document.getElementById("name").value.trim();
-
-        const company = document.getElementById("company").value.trim();
-
-        const message = document.getElementById("message").value.trim();
+const quoteForm =
+    document.getElementById("quoteForm");
 
 
-        let whatsappMessage =
-            "Ola! Vim pelo site da Wess e gostaria de solicitar um orcamento.%0A%0A";
+quoteForm.addEventListener("submit", function (event) {
+
+    event.preventDefault();
 
 
-        if (name) {
-            whatsappMessage +=
-                "Nome: " +
-                encodeURIComponent(name) +
-                "%0A";
-        }
+    const name =
+        document.getElementById("name").value.trim();
 
 
-        if (company) {
-            whatsappMessage +=
-                "Empresa: " +
-                encodeURIComponent(company) +
-                "%0A";
-        }
+    const company =
+        document.getElementById("company").value.trim();
 
 
-        if (message) {
-            whatsappMessage +=
-                "Mensagem: " +
-                encodeURIComponent(message) +
-                "%0A";
-        }
+    const phone =
+        document.getElementById("phone").value.trim();
 
 
-        const whatsappUrl =
-            "https://wa.me/5541984171327?text=" +
-            whatsappMessage;
+    const product =
+        document.getElementById("product").value;
 
 
-        window.open(
-            whatsappUrl,
-            "_blank",
-            "noopener,noreferrer"
+    const message =
+        document.getElementById("message").value.trim();
+
+
+    const whatsappMessage =
+
+        "Ola Wess Etiquetas!" +
+
+        "\n\n" +
+
+        "Nome: " +
+        name +
+
+        "\n" +
+
+        "Empresa: " +
+        company +
+
+        "\n" +
+
+        "Telefone: " +
+        phone +
+
+        "\n" +
+
+        "Produto: " +
+        product +
+
+        "\n" +
+
+        "Mensagem: " +
+        message;
+
+
+    const whatsappUrl =
+
+        "https://wa.me/5541984171327?text=" +
+
+        encodeURIComponent(
+            whatsappMessage
         );
 
-    });
 
-}
-
-
-/* ANO AUTOMATICO */
-
-const yearElement = document.getElementById("year");
-
-if (yearElement) {
-
-    yearElement.textContent =
-        new Date().getFullYear();
-
-}
-
-
-/* FECHAR MENU AO REDIMENSIONAR */
-
-window.addEventListener("resize", function () {
-
-    if (window.innerWidth > 900) {
-
-        if (menu) {
-            menu.classList.remove("active");
-        }
-
-        document.body.classList.remove("menu-open");
-
-    }
+    window.open(
+        whatsappUrl,
+        "_blank"
+    );
 
 });
